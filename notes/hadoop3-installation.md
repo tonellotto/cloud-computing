@@ -50,16 +50,16 @@ We will use a dedicated Hadoop user account for running Hadoop applications. Whi
 **On every machine** in your cluster, execute the following steps.
 
 1. Edit the `/etc/hosts` file with the following command:
-```bash
-$ sudo nano /etc/hosts
-```
-and replace its content with the following:
-```
-127.0.0.1 localhost
-172.16.0.1 hadoop-namenode
-172.16.0.2 hadoop-datanode-2
-172.16.0.3 hadoop-datanode-3
-```
+  ```bash
+  $ sudo nano /etc/hosts
+  ```
+  and replace its content with the following:
+  ```
+  127.0.0.1 localhost
+  172.16.0.1 hadoop-namenode
+  172.16.0.2 hadoop-datanode-2
+  172.16.0.3 hadoop-datanode-3
+  ```
 2. Edit the `/etc/hostname` file with the corresponding hostname. Open the file with the following command:
 ```bash
 $ sudo nano /etc/hostname
