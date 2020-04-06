@@ -298,76 +298,76 @@ The following steps must be performed **on the machine defined as name node only
 The following steps must be performed **on each machine defined as data node**, in our case `hadoop-namenode`, `hadoop-datanode-2`, and `hadoop-datanode-3`.
 
 1. Update the `core-site.xml` file located a `/opt/hadoop/etc/hadoop/` to define the name node URI on this machine.  
-The file must look like:  
-
-```xml
-<configuration>
-  <property>
-    <name>fs.defaultFS</name>
-    <value>hdfs://hadoop-namenode:9820/</value>
-  </property>
-</configuration>
-```
-
+    The file must look like:  
+    
+    ```xml
+    <configuration>
+      <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://hadoop-namenode:9820/</value>
+      </property>
+    </configuration>
+    ```
+    
 2. Update the `hdfs-site.xml` file located a `/opt/hadoop/etc/hadoop/` to define the data node parameters on this machine.  
-The file must look like:
-
-```xml
-<configuration>
-  <property>
-    <name>dfs.datanode.data.dir</name>
-    <value>file:///opt/hdfs/datanode</value>
-  </property>
-  <property>
-    <name>dfs.replication</name>
-    <value>2</value>
-  </property>
-  <property>
-    <name>dfs.permissions</name>
-    <value>false</value>
-  </property>
-  <property>
-    <name>dfs.datanode.use.datanode.hostname</name>
-    <value>false</value>
-  </property>
-</configuration>
-```
-
+    The file must look like:
+    
+    ```xml
+    <configuration>
+      <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///opt/hdfs/datanode</value>
+      </property>
+      <property>
+        <name>dfs.replication</name>
+        <value>2</value>
+      </property>
+      <property>
+        <name>dfs.permissions</name>
+        <value>false</value>
+      </property>
+      <property>
+        <name>dfs.datanode.use.datanode.hostname</name>
+        <value>false</value>
+      </property>
+    </configuration>
+    ```
+    
 3. Update the `yarn-site.xml` file located at `/opt/hadoop/etc/hadoop`.  
-The file must look like:  
-
-```xml
-<configuration>
-  <property>
-    <name>yarn.nodemanager.aux-services</name>
-    <value>mapreduce_shuffle</value>
-  </property>
-</configuration>
-```
-
+    The file must look like:  
+    
+    ```xml
+    <configuration>
+      <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+      </property>
+    </configuration>
+    ```
+    
 4. Update the `mapred-site.xml` file located at `/opt/hadoop/etc/hadoop`.  
-The file must look like:  
-
-```xml
-<configuration>
-  <property>
-    <name>mapreduce.framework.name</name>
-    <value>yarn</value>
-  </property>
-  <property>
-    <name>yarn.app.mapreduce.am.env</name>
-    <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
-  </property>
-  <property>
-    <name>mapreduce.map.env</name>
-    <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
-  </property>
-  <property>
-    <name>mapreduce.reduce.env</name>
-    <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
-  </property>
-</configuration>
-```
+    The file must look like:  
+    
+    ```xml
+    <configuration>
+      <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+      </property>
+      <property>
+        <name>yarn.app.mapreduce.am.env</name>
+        <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
+      </property>
+      <property>
+        <name>mapreduce.map.env</name>
+        <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
+      </property>
+      <property>
+        <name>mapreduce.reduce.env</name>
+        <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
+      </property>
+    </configuration>
+    ```
 
 ### 4. Understanding the Hadoop memory allocation
 
@@ -418,141 +418,143 @@ For 2 GB nodes, a working configuration may be:
 According to the previous table, **on each machine** you should update the configuration files as follows.
 
 1. Update the `yarn-site.xml` file located at `/opt/hadoop/etc/hadoop` by adding the following lines in the `configuration` element:  
-
-```xml
-<property>
-  <name>yarn.nodemanager.resource.memory-mb</name>
-  <value>1536</value>
-</property>
-<property>
-  <name>yarn.scheduler.maximum-allocation-mb</name>
-  <value>1536</value>
-</property>
-<property>
-  <name>yarn.scheduler.minimum-allocation-mb</name>
-  <value>128</value>
-</property>
-<property>
-  <name>yarn.nodemanager.vmem-check-enabled</name>
-  <value>false</value>
-</property>
-```
-The last property disables virtual memory checking which can prevent containers from being allocated properly with Java 8 if enabled.
-
+    
+    ```xml
+    <property>
+      <name>yarn.nodemanager.resource.memory-mb</name>
+      <value>1536</value>
+    </property>
+    <property>
+      <name>yarn.scheduler.maximum-allocation-mb</name>
+      <value>1536</value>
+    </property>
+    <property>
+      <name>yarn.scheduler.minimum-allocation-mb</name>
+      <value>128</value>
+    </property>
+    <property>
+      <name>yarn.nodemanager.vmem-check-enabled</name>
+      <value>false</value>
+    </property>
+    ```
+    The last property disables virtual memory checking which can prevent containers from being allocated properly with Java 8 if enabled.
+    
 2. Update the `mapred-site.xml` file located at `/opt/hadoop/etc/hadoop` by adding the following lines in the `configuration` element:  
-
-```xml
-<property>
-  <name>yarn.app.mapreduce.am.resource.mb</name>
-  <value>512</value>
-</property>
-
-<property>
-  <name>mapreduce.map.memory.mb</name>
-  <value>256</value>
-</property>
-
-<property>
-  <name>mapreduce.reduce.memory.mb</name>
-  <value>256</value>
-</property>
-```
+    
+    ```xml
+    <property>
+      <name>yarn.app.mapreduce.am.resource.mb</name>
+      <value>512</value>
+    </property>
+    
+    <property>
+      <name>mapreduce.map.memory.mb</name>
+      <value>256</value>
+    </property>
+    
+    <property>
+      <name>mapreduce.reduce.memory.mb</name>
+      <value>256</value>
+    </property>
+    ```
 
 ## <a name="s_start"></a> Start and test Hadoop
 
 After finishing the steps above, we must execute the following commands:
 
 1. To start the name node, data nodes and secondary name node, **from the name node** we must execute the following command:  
-```bash
-start-dfs.sh
-```
-You should get an output similar to the following:  
-```
-Starting namenodes on [hadoop-namenode]
-Starting datanodes
-Starting secondary namenodes [hadoop-namenode]
-```
-
+    ```bash
+    start-dfs.sh
+    ```
+    You should get an output similar to the following:  
+    ```
+    Starting namenodes on [hadoop-namenode]
+    Starting datanodes
+    Starting secondary namenodes [hadoop-namenode]
+    ```
+    
 2. To start the resource manager and node managers, _from the name node_ we must execute the following command:  
-```bash
-start-yarn.sh
-```
-You should get an output similar to the following:  
-```bash
-Starting resourcemanager
-Starting nodemanagers
-```
-
+    ```bash
+    start-yarn.sh
+    ```
+    You should get an output similar to the following:  
+    ```bash
+    Starting resourcemanager
+    Starting nodemanagers
+    ```
+    
 3. After these two steps, to ensure that Hadoop started successfully, we must run the `jps` command on name node and data nodes must give the following output (process ids can be different):  
-    - on the name node:  
-    ```bash
-    28403 DataNode
-    28675 SecondaryNameNode
-    29460 Jps
-    28919 ResourceManager
-    28183 NameNode
-    29308 NodeManager
-    ```
-    - on the data nodes  
-    ```bash
-    25721 Jps
-    25451 DataNode
-    25644 NodeManager
-    ```
-You may check logs at `/opt/hadoop/logs` on the 3 machines and check if everything is alright, or running the `hdfs dfsadmin -report` command (it must return `Live datanodes (3)`).
-
+        - on the name node:  
+        ```bash
+        28403 DataNode
+        28675 SecondaryNameNode
+        29460 Jps
+        28919 ResourceManager
+        28183 NameNode
+        29308 NodeManager
+        ```
+        - on the data nodes  
+        ```bash
+        25721 Jps
+        25451 DataNode
+        25644 NodeManager
+        ```
+    You may check logs at `/opt/hadoop/logs` on the 3 machines and check if everything is alright, or running the `hdfs dfsadmin -report` command (it must return `Live datanodes (3)`).
+    
 4. You can access Hadoop on a browser on your local machine (use IP addresses, not hostnames):
-    - namenode: `http://172.16.0.1:9870/`
-    - resource manager: `http://172.16.0.1:8088/`
-
+        - namenode: `http://172.16.0.1:9870/`
+        - resource manager: `http://172.16.0.1:8088/`
+    
 5. Run some of the examples provided with Hadoop:  
-```bash
-hadoop fs -mkdir /user
-hadoop fs -mkdir /user/hadoop
-hadoop fs -put /opt/hadoop/etc/hadoop/ input
-hadoop jar /opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar grep /user/hadoop/input/*.xml /user/hadoop/output 'dfs[a-z.]+'
-hadoop fs -cat output/part-r-00000
-```
+    ```bash
+    hadoop fs -mkdir /user
+    hadoop fs -mkdir /user/hadoop
+    hadoop fs -put /opt/hadoop/etc/hadoop/ input
+    hadoop jar /opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar grep /user/hadoop/input/*.xml /user/hadoop/output 'dfs[a-z.]+'
+    hadoop fs -cat output/part-r-00000
+    ```
+
 6. To stop the name node, data nodes and secondary name node, the resource manager and node managers, **from the name node** we must execute the following commands:  
-```bash
-stop-yarn.sh
-stop-dfs.sh
-```
-You should get an output similar to the following:  
-```bash
-Stopping resourcemanager
-Stopping nodemanagers
-Stopping namenodes on [hadoop-namenode]
-Stopping datanodes
-Stopping secondary namenodes [hadoop-namenode]
-```
+    ```bash
+    stop-yarn.sh
+    stop-dfs.sh
+    ```
+    You should get an output similar to the following:  
+    ```bash
+    Stopping resourcemanager
+    Stopping nodemanagers
+    Stopping namenodes on [hadoop-namenode]
+    Stopping datanodes
+    Stopping secondary namenodes [hadoop-namenode]
+    ```
 
 ## Troubleshooting
 
 * If you get an error like the following:  
-```bash
-[2020-01-14 08:48:28.567]Container [pid=155967,containerID=container_1578991625193_0002_01_000023] is running 380426752B beyond the 'VIRTUAL' memory limit. Current usage: 151.6 MB of 1 GB physical memory used; 2.5 GB of 2.1 GB virtual memory used. Killing container.
-```
-you are using more virtual memory than your current limit of 2.1 Gb. This can be resolved in two ways:<br>
-1. **Disable Virtual Memory Limit Checking**<br>
-YARN will simply ignore the limit; in order to do this, add this to your `yarn-site.xml` _on each machine_:  
+    ```bash
+    [2020-01-14 08:48:28.567]Container [pid=155967,containerID=container_1578991625193_0002_01_000023] is running 380426752B beyond the 'VIRTUAL' memory limit. Current usage: 151.6 MB of 1 GB physical memory used; 2.5 GB of 2.1 GB virtual memory used. Killing container.
+    ```
+    you are using more virtual memory than your current limit of 2.1 Gb. This can be resolved in two ways:
+      1. **Disable Virtual Memory Limit Checking**
+      YARN will simply ignore the limit; in order to do this, add this to your `yarn-site.xml` _on each machine_:  
 
-```bash
-<property>
-  <name>yarn.nodemanager.vmem-check-enabled</name>
-  <value>false</value>
-</property>
-```
-The default for this setting is `true`.<br>
-2. **Increase Virtual Memory to Physical Memory Ratio**<br>
-In your `yarn-site.xml` change this to a higher value than is currently set, _on each machine_:  
+          ```bash
+          <property>
+            <name>yarn.nodemanager.vmem-check-enabled</name>
+            <value>false</value>
+            </property>
+          ```
+      The default for this setting is `true`.
 
-```bash
-<property>
-  <name>yarn.nodemanager.vmem-pmem-ratio</name>
-  <value>5</value>
-</property>
-```
-The default is 2.1
-You could also increase the amount of physical memory you allocate to a container.<br>
-_Make sure you don't forget to restart yarn after you change the configuration_.
+      2. **Increase Virtual Memory to Physical Memory Ratio**<br>
+      In your `yarn-site.xml` change this to a higher value than is currently set, _on each machine_:  
+
+          ```bash
+          <property>
+            <name>yarn.nodemanager.vmem-pmem-ratio</name>
+            <value>5</value>
+          </property>
+          ```
+      The default is 2.1.
+      You could also increase the amount of physical memory you allocate to a container.<br>
+      _Make sure you don't forget to restart yarn after you change the configuration_.
