@@ -535,7 +535,7 @@ After finishing the steps above, we must execute the following commands:
     [2020-01-14 08:48:28.567]Container [pid=155967,containerID=container_1578991625193_0002_01_000023] is running 380426752B beyond the 'VIRTUAL' memory limit. Current usage: 151.6 MB of 1 GB physical memory used; 2.5 GB of 2.1 GB virtual memory used. Killing container.
     ```
     you are using more virtual memory than your current limit of 2.1 Gb. This can be resolved in two ways:
-      1. **Disable Virtual Memory Limit Checking**
+        1. **Disable Virtual Memory Limit Checking**
       YARN will simply ignore the limit; in order to do this, add this to your `yarn-site.xml` _on each machine_:  
 
           ```bash
