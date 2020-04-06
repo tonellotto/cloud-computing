@@ -198,101 +198,100 @@ The following commands are used to create the `.ssh` folder in your home folder 
 The following steps must be performed **on the machine defined as name node only**, in our case `hadoop-namenode`.
 
 1. Update the `core-site.xml` file located a `/opt/hadoop/etc/hadoop/` to define the name node URI on this machine.  
-The file must look like:
-
-```xml
-<configuration>
-  <property>
-    <name>fs.defaultFS</name>
-    <value>hdfs://hadoop-namenode:9820/</value>
-  </property>
-</configuration>
-```
+    The file must look like:
+    
+    ```xml
+    <configuration>
+      <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://hadoop-namenode:9820/</value>
+      </property>
+    </configuration>
+    ```
 2. Update the `hdfs-site.xml` file located a `/opt/hadoop/etc/hadoop/` to define the path on the local filesystem where the name node stores the namespace and transactions logs persistently.  
-The file must look like:  
-
-```xml
-<configuration>
-  <property>
-    <name>dfs.namenode.name.dir</name>
-    <value>file:///opt/hdfs/namenode</value>
-  </property>
-</configuration>
-```
+    The file must look like:  
+    
+    ```xml
+    <configuration>
+      <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:///opt/hdfs/namenode</value>
+      </property>
+    </configuration>
+    ```
 3. Update the `yarn-site.xml` file located at `/opt/hadoop/etc/hadoop`.  
-The file must look like:  
-
-```xml
-<configuration>
-  <property>
-    <name>yarn.nodemanager.aux-services</name>
-    <value>mapreduce_shuffle</value>
-  </property>
-  <property>
-    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
-    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
-  </property>
-  <property>
-    <name>yarn.nodemanager.local-dirs</name>
-    <value>file:///opt/yarn/local</value>
-  </property>
-  <property>
-    <name>yarn.nodemanager.log-dirs</name>
-    <value>file:///opt/yarn/logs</value>
-  </property>
-</configuration>
-```
+    The file must look like:  
+    
+    ```xml
+    <configuration>
+      <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+      </property>
+      <property>
+        <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+        <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+      </property>
+      <property>
+        <name>yarn.nodemanager.local-dirs</name>
+        <value>file:///opt/yarn/local</value>
+      </property>
+      <property>
+        <name>yarn.nodemanager.log-dirs</name>
+        <value>file:///opt/yarn/logs</value>
+      </property>
+    </configuration>
+    ```
 4. Update the `mapred-site.xml` file located at `/opt/hadoop/etc/hadoop`.  
-The file must look like:  
-
-```xml
-<configuration>
-  <property>
-    <name>mapreduce.framework.name</name>
-    <value>yarn</value>
-  </property>
-  <property>
-    <name>mapreduce.jobhistory.address</name>
-    <value>hadoop-namenode:10020</value>
-  </property>
-  <property>
-    <name>mapreduce.jobhistory.webapp.address</name>
-    <value> hadoop-namenode:19888</value>
-  </property>
-  <property>
-    <name>mapreduce.jobhistory.intermediate-done-dir</name>
-    <value>/mr-history/tmp</value>
-  </property>
-  <property>
-    <name>mapreduce.jobhistory.done-dir</name>
-    <value>/mr-history/done</value>
-  </property>
-  <property>
-    <name>yarn.app.mapreduce.am.env</name>
-    <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
-  </property>
-  <property>
-    <name>mapreduce.map.env</name>
-    <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
-  </property>
-  <property>
-    <name>mapreduce.reduce.env</name>
-    <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
-  </property>
-</configuration>
-```
+    The file must look like:  
+    
+    ```xml
+    <configuration>
+      <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+      </property>
+      <property>
+        <name>mapreduce.jobhistory.address</name>
+        <value>hadoop-namenode:10020</value>
+      </property>
+      <property>
+        <name>mapreduce.jobhistory.webapp.address</name>
+        <value> hadoop-namenode:19888</value>
+      </property>
+      <property>
+        <name>mapreduce.jobhistory.intermediate-done-dir</name>
+        <value>/mr-history/tmp</value>
+      </property>
+      <property>
+        <name>mapreduce.jobhistory.done-dir</name>
+        <value>/mr-history/done</value>
+      </property>
+      <property>
+        <name>yarn.app.mapreduce.am.env</name>
+        <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
+      </property>
+      <property>
+        <name>mapreduce.map.env</name>
+        <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
+      </property>
+      <property>
+        <name>mapreduce.reduce.env</name>
+        <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
+      </property>
+    </configuration>
+    ```
 5. Format the name node:  
-```bash
-$ hdfs namenode -format
-```
-
+    ```bash
+    $ hdfs namenode -format
+    ```
 6. Add the data nodes to the `workers` file located in `/opt/hadoop/etc/hadoop`.  
-The file must look like:  
-```bash
-172.16.0.1
-172.16.0.2
-172.16.0.3
-```
+    The file must look like:  
+    ```bash
+    172.16.0.1
+    172.16.0.2
+    172.16.0.3
+    ```
 
 ### 3. Configure the data nodes
 
