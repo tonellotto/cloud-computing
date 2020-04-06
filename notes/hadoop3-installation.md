@@ -555,6 +555,6 @@ After finishing the steps above, we must execute the following commands:
             <value>5</value>
           </property>
           ```
-      The default is 2.1.
+      The default is 2.1.<br>
       You could also increase the amount of physical memory you allocate to a container.<br>
       _Make sure you don't forget to restart yarn after you change the configuration_.
