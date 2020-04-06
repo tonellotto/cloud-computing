@@ -131,67 +131,67 @@ The following commands are used to create the `.ssh` folder in your home folder 
 **On every machine** in your cluster, execute the following steps.
 
 1. We will install all the software under the `/opt` directory and store HDFS underlying data there as well. <br>
-Use the following command to create the folders with a single command.  
-```bash
-$ sudo mkdir -p /opt/{hadoop/logs,hdfs/{datanode,namenode},yarn/logs}
-$ sudo chown -R hadoop:hadoopgroup /opt
-```
-The layout of the folder will looks like:  
-```bash
-/opt
-├── hadoop
-│   └── logs
-├── hdfs
-│   ├── datanode
-│   └── namenode
-└── yarn
-    └── logs
-```
-
-3. Download [hadoop-3.1.3.tar.gz](https://mirror.nohup.it/apache/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.tar.gz) in your folder using the following command:  
-```bash
-$ wget -c -O ~/hadoop.tar.gz http://it.apache.contactlab.it/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.tar.gz
-```
-
-4. Decompress the Hadoop package you can use the following command:  
-```bash
-$ tar -xvf hadoop.tar.gz --directory=/opt/hadoop --exclude=hadoop-3.1.0/share/doc --strip 1
-```
-To save space, remove the `hadoop.tar.gz` file from your folder:  
-```bash
-$ rm ~/hadoop.tar.gz
-```
-
-5. There are environment settings that will be used by Hadoop. In the `/home/hadoop/.bashrc` file must, please append **at the end** the following lines:  
-```bash
-export HADOOP_HOME=/opt/hadoop
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
-export LD_LIBRARY_PATH=$HADOOP_HOME/lib/native:$LD_LIBRARY_PATH
-export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
-export HDFS_NAMENODE_USER=hadoop
-export HDFS_DATANODE_USER=hadoop
-export HDFS_SECONDARYNAMENODE_USER=hadoop
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export HADOOP_MAPRED_HOME=$HADOOP_HOME
-export HADOOP_COMMON_HOME=$HADOOP_HOME
-export HADOOP_HDFS_HOME=$HADOOP_HOME
-export YARN_HOME=$HADOOP_HOME
-export HADOOP_LOG_DIR=$HADOOP_HOME/logs
-```
-
-6. Log out and re-login to your `hadoop` account and check Hadoop installation using command:  
-```bash
-$ hadoop version
-```
-The output should look similar to the following:  
-```bash
-Hadoop 3.1.3
-Source code repository https://gitbox.apache.org/repos/asf/hadoop.git -r ba631c436b806728f8ec2f54ab1e289526c90579
-Compiled by ztang on 2019-09-12T02:47Z
-Compiled with protoc 2.5.0
-From source with checksum ec785077c385118ac91aadde5ec9799
-This command was run using /opt/hadoop/share/hadoop/common/hadoop-common-3.1.3.jar
-```
+    Use the following command to create the folders with a single command.  
+    ```bash
+    $ sudo mkdir -p /opt/{hadoop/logs,hdfs/{datanode,namenode},yarn/logs}
+    $ sudo chown -R hadoop:hadoopgroup /opt
+    ```
+    The layout of the folder will looks like:  
+    ```bash
+    /opt
+    ├── hadoop
+    │   └── logs
+    ├── hdfs
+    │   ├── datanode
+    │   └── namenode
+    └── yarn
+        └── logs
+    ```
+    
+2. Download [hadoop-3.1.3.tar.gz](https://mirror.nohup.it/apache/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.tar.gz) in your folder using the following command:  
+    ```bash
+    $ wget -c -O ~/hadoop.tar.gz http://it.apache.contactlab.it/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.tar.gz
+    ```
+    
+3. Decompress the Hadoop package you can use the following command:  
+    ```bash
+    $ tar -xvf hadoop.tar.gz --directory=/opt/hadoop --exclude=hadoop-3.1.0/share/doc --strip 1
+    ```
+    To save space, remove the `hadoop.tar.gz` file from your folder:  
+    ```bash
+    $ rm ~/hadoop.tar.gz
+    ```
+    
+4. There are environment settings that will be used by Hadoop. In the `/home/hadoop/.bashrc` file must, please append **at the end** the following lines:  
+    ```bash
+    export HADOOP_HOME=/opt/hadoop
+    export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+    export LD_LIBRARY_PATH=$HADOOP_HOME/lib/native:$LD_LIBRARY_PATH
+    export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+    export HDFS_NAMENODE_USER=hadoop
+    export HDFS_DATANODE_USER=hadoop
+    export HDFS_SECONDARYNAMENODE_USER=hadoop
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+    export HADOOP_MAPRED_HOME=$HADOOP_HOME
+    export HADOOP_COMMON_HOME=$HADOOP_HOME
+    export HADOOP_HDFS_HOME=$HADOOP_HOME
+    export YARN_HOME=$HADOOP_HOME
+    export HADOOP_LOG_DIR=$HADOOP_HOME/logs
+    ```
+    
+5. Log out and re-login to your `hadoop` account and check Hadoop installation using command:  
+    ```bash
+    $ hadoop version
+    ```
+    The output should look similar to the following:  
+    ```bash
+    Hadoop 3.1.3
+    Source code repository https://gitbox.apache.org/repos/asf/hadoop.git -r ba631c436b806728f8ec2f54ab1e289526c90579
+    Compiled by ztang on 2019-09-12T02:47Z
+    Compiled with protoc 2.5.0
+    From source with checksum ec785077c385118ac91aadde5ec9799
+    This command was run using /opt/hadoop/share/hadoop/common/hadoop-common-3.1.3.jar
+    ```
 
 ### 2. Configure the name node
 
