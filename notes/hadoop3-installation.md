@@ -543,7 +543,7 @@ you are using more virtual memory than your current limit of 2.1 Gb. This can be
         <value>false</value>
       </property>
       ```
-    The default for this setting is `true`.
+      The default for this setting is `true`.
 
   2. **Increase Virtual Memory to Physical Memory Ratio**<br>In your `yarn-site.xml` change this to a higher value than is currently set, _on each machine_:  
       ```bash
@@ -552,6 +552,6 @@ you are using more virtual memory than your current limit of 2.1 Gb. This can be
         <value>5</value>
       </property>
       ```
-    The default is 2.1.<br>
-    You could also increase the amount of physical memory you allocate to a container.<br>
-    _Make sure you don't forget to restart yarn after you change the configuration_.
+      The default is 2.1.<br>
+      You could also increase the amount of physical memory you allocate to a container.<br>
+      _Make sure you don't forget to restart yarn after you change the configuration_.
