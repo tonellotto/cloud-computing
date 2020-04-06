@@ -1,5 +1,5 @@
 # Lectures on Python
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tonellotto/cloud-computing/master/python)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tonellotto/cloud-computing/master?filepath=python)
 
 A set of lectures on computing with Python, using [Jupyter](https://jupyter.org) notebooks. To install Jupyter on your computer, please follow these [instructions](http://jupyter.readthedocs.io/en/latest/install.html).
 
@@ -18,8 +18,9 @@ This will open a new page in your browser with a list of the available notebooks
 
 # Online executable versions
 
-* [0. Introduction to Python](https://mybinder.org/v2/gh/tonellotto/cloud-computing/master/python?filepath=0.%20Introduction%20to%20Python.ipynb)
-* [1. Basic Python](https://mybinder.org/v2/gh/tonellotto/cloud-computing/master/python?filepath=1.%20Basic%20Python.ipynb)
+* [0. Introduction to Python](https://mybinder.org/v2/gh/tonellotto/cloud-computing/master?filepath=python%2F0.%20Introduction%20to%20Python.ipynb
+)
+* [1. Basic Python](https://mybinder.org/v2/gh/tonellotto/cloud-computing/master?filepath=python%2F1.%20Basic%20Python.ipynb)
 
 # Exercises
 
