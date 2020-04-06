@@ -80,49 +80,49 @@ We will use a dedicated Hadoop user account for running Hadoop applications. Whi
 **On every machine** in your cluster, execute the following steps.
 
 1. Create the `hadoopuser` group, the `hadoop` user account and login as `hadoop` user.
-```bash
-$ sudo addgroup hadoopgroup
-$ sudo adduser --ingroup hadoopgroup hadoop
-$ sudo adduser hadoop sudo
-```
-The `hadoop` user is a non-root user, but with `sudo` privileges.
+    ```bash
+    $ sudo addgroup hadoopgroup
+    $ sudo adduser --ingroup hadoopgroup hadoop
+    $ sudo adduser hadoop sudo
+    ```
+    The `hadoop` user is a non-root user, but with `sudo` privileges.
 
 2. Login as the `hadoop` user, and move in your home folder
-```bash
-$ sudo su -- hadoop
-$ cd
-```
-From now on, all operations will be performed as the `hadoop` user.
+    ```bash
+    $ sudo su -- hadoop
+    $ cd
+    ```
+    From now on, all operations will be performed as the `hadoop` user.
 
 3. Hadoop requires SSH access to manage its different nodes, i.e., remote machines plus your local machine.  
 The following commands are used to create the `.ssh` folder in your home folder and to setup its access properties:  
-```bash
-$ mkdir .ssh
-$ chmod 700 .ssh
-```
-The following commands are used for generating a key value pair using SSH:  
-```bash
-$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-$ chmod 0600 ~/.ssh/authorized_keys
-```
-The first command will create a private/public pair of keys in the `.ssh` folder in your home folder. If asked for passphrase, leave blank and hit return. The second command will append your public key to the list of authorized hosts. The last command will setup the correct file access properties.  
-Check that you can ssh to your **local machine** without a passphrase:  
+    ```bash
+    $ mkdir .ssh
+    $ chmod 700 .ssh
+    ```
+    The following commands are used for generating a key value pair using SSH:  
+    ```bash
+    $ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+    $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+    $ chmod 0600 ~/.ssh/authorized_keys
+    ```
+    The first command will create a private/public pair of keys in the `.ssh` folder in your home folder. If asked for passphrase, leave blank and hit return. The second command will append your public key to the list of    authorized hosts. The last command will setup the correct file access properties.  
+    Check that you can ssh to your **local machine** without a passphrase:  
+    
+    ```bash
+    $ ssh localhost
+    <answer YES>
+    <after login, close the SSH connection>
+    $ exit
+    ```
+    Now you can ssh to your local machine without a password/passphrase.
 
-```bash
-$ ssh localhost
-<answer YES>
-<after login, close the SSH connection>
-$ exit
-```
-Now you can ssh to your local machine without a password/passphrase.
-
-7. **IMPORTANT**: you must make sure that **the name node has a password-less access to the data nodes**. Hence, **on the hadoop-namenode** machine, run the following commands:  
-```bash
-$ ssh-copy-id -i /home/hadoop/.ssh/id_rsa.pub hadoop@hadoop-datanode-2
-$ ssh-copy-id -i /home/hadoop/.ssh/id_rsa.pub hadoop@hadoop-datanode-3
-```
-These commands **will ask you the passphrase**, to copy the required files to the destination machine. Once this is done, log out with the command `exit` and login again, and you should be able to login without password.
+4. **IMPORTANT**: you must make sure that **the name node has a password-less access to the data nodes**. Hence, **on the hadoop-namenode** machine, run the following commands:  
+    ```bash
+    $ ssh-copy-id -i /home/hadoop/.ssh/id_rsa.pub hadoop@hadoop-datanode-2
+    $ ssh-copy-id -i /home/hadoop/.ssh/id_rsa.pub hadoop@hadoop-datanode-3
+    ```
+    These commands **will ask you the passphrase**, to copy the required files to the destination machine. Once this is done, log out with the command `exit` and login again, and you should be able to login without password.
 
 ## <a name="s_install"></a> Download and configure Hadoop
 
