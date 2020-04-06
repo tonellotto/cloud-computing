@@ -60,18 +60,20 @@ We will use a dedicated Hadoop user account for running Hadoop applications. Whi
     172.16.0.2 hadoop-datanode-2
     172.16.0.3 hadoop-datanode-3
   ```
+
 2. Edit the `/etc/hostname` file with the corresponding hostname. Open the file with the following command:
-```bash
-$ sudo nano /etc/hostname
-```
-and replace its content with the corresponding hostname. For example, on the machine with IP address `172.16.0.1`, the `/etc/hostname` file should contain the following single line:
-```
-hadoop-namenode
-```
+    ```bash
+    $ sudo nano /etc/hostname
+    ```
+    and replace its content with the corresponding hostname. For example, on the machine with IP address `172.16.0.1`, the `/etc/hostname` file should contain the following single line:
+    ```
+    hadoop-namenode
+    ```
+
 3. Reboot the machine with the following command:
-```bash
-$ sudo reboot
-```
+    ```bash
+    $ sudo reboot
+    ```
 
 #### 2.2 Hadoop user creation
 
