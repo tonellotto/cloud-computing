@@ -536,25 +536,22 @@ If you get an error like the following:
 ```
 you are using more virtual memory than your current limit of 2.1 Gb. This can be resolved in two ways:
 
-  1. **Disable Virtual Memory Limit Checking**
-    YARN will simply ignore the limit; in order to do this, add this to your `yarn-site.xml` _on each machine_:  
-
+  1. **Disable Virtual Memory Limit Checking**<br>YARN will simply ignore the limit; in order to do this, add this to your `yarn-site.xml` _on each machine_:  
       ```bash
       <property>
         <name>yarn.nodemanager.vmem-check-enabled</name>
         <value>false</value>
       </property>
       ```
-    The default for this setting is `true`.
+  The default for this setting is `true`.
 
-  2. **Increase Virtual Memory to Physical Memory Ratio**<br>
-    In your `yarn-site.xml` change this to a higher value than is currently set, _on each machine_:  
-    ```bash
-    <property>
-      <name>yarn.nodemanager.vmem-pmem-ratio</name>
-      <value>5</value>
-    </property>
-    ```
-    The default is 2.1.<br>
-    You could also increase the amount of physical memory you allocate to a container.<br>
-    _Make sure you don't forget to restart yarn after you change the configuration_.
+  2. **Increase Virtual Memory to Physical Memory Ratio**<br>In your `yarn-site.xml` change this to a higher value than is currently set, _on each machine_:  
+      ```bash
+      <property>
+        <name>yarn.nodemanager.vmem-pmem-ratio</name>
+        <value>5</value>
+      </property>
+      ```
+  The default is 2.1.<br>
+  You could also increase the amount of physical memory you allocate to a container.<br>
+  _Make sure you don't forget to restart yarn after you change the configuration_.
