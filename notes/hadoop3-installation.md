@@ -59,7 +59,7 @@ We will use a dedicated Hadoop user account for running Hadoop applications. Whi
     172.16.0.1 hadoop-namenode
     172.16.0.2 hadoop-datanode-2
     172.16.0.3 hadoop-datanode-3
-  ```
+    ```
 
 2. Edit the `/etc/hostname` file with the corresponding hostname. Open the file with the following command:
     ```bash
