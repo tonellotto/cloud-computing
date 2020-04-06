@@ -539,12 +539,12 @@ you are using more virtual memory than your current limit of 2.1 Gb. This can be
   1. **Disable Virtual Memory Limit Checking**
     YARN will simply ignore the limit; in order to do this, add this to your `yarn-site.xml` _on each machine_:  
 
-    ```bash
-    <property>
-      <name>yarn.nodemanager.vmem-check-enabled</name>
-      <value>false</value>
-    </property>
-    ```
+      ```bash
+      <property>
+        <name>yarn.nodemanager.vmem-check-enabled</name>
+        <value>false</value>
+      </property>
+      ```
     The default for this setting is `true`.
 
   2. **Increase Virtual Memory to Physical Memory Ratio**<br>
