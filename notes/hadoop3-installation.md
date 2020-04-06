@@ -543,7 +543,7 @@ you are using more virtual memory than your current limit of 2.1 Gb. This can be
     <property>
       <name>yarn.nodemanager.vmem-check-enabled</name>
       <value>false</value>
-    </property>
+      </property>
     ```
     The default for this setting is `true`.
 
