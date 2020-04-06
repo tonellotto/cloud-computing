@@ -60,8 +60,7 @@ and replace its content with the following:
 172.16.0.2 hadoop-datanode-2
 172.16.0.3 hadoop-datanode-3
 ```
-
-1. Edit the `/etc/hostname` file with the corresponding hostname. Open the file with the following command:
+2. Edit the `/etc/hostname` file with the corresponding hostname. Open the file with the following command:
 ```bash
 $ sudo nano /etc/hostname
 ```
@@ -69,8 +68,7 @@ and replace its content with the corresponding hostname. For example, on the mac
 ```
 hadoop-namenode
 ```
-
-1. Reboot the machine with the following command:
+3. Reboot the machine with the following command:
 ```bash
 $ sudo reboot
 ```
