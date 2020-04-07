@@ -79,7 +79,7 @@ We will use a dedicated Hadoop user account for running Hadoop applications. Whi
 
 **On every machine** in your cluster, execute the following steps.
 
-1. Create the `hadoopuser` group, the `hadoop` user account and login as `hadoop` user.
+1. Create the `hadoopuser` group, and the `hadoop` user account.
     ```bash
     $ sudo addgroup hadoopgroup
     $ sudo adduser --ingroup hadoopgroup hadoop
