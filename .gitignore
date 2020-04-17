@@ -6,3 +6,4 @@
 .vscode
 #local
 **/*.pyc
+.ipynb_checkpoints
