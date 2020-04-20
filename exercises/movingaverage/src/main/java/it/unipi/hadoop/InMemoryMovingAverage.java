@@ -12,16 +12,12 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
-//import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
-//import org.apache.hadoop.mapreduce.Reducer.Context;
 import org.apache.hadoop.util.GenericOptionsParser;
-
-// import org.apache.commons.lang.StringUtils;
 
 public class InMemoryMovingAverage
 {
@@ -38,7 +34,6 @@ public class InMemoryMovingAverage
             if (record == null || record.length() == 0)
                 return;
 
-            // String[] tokens = StringUtils.split(record.trim(), ",");
             String[] tokens = record.trim().split(",");
 
             if (tokens.length == 3) {
@@ -53,18 +48,17 @@ public class InMemoryMovingAverage
         }
     }
 
-    public static class MovingAverageReducer extends Reducer<Text, TimeSeriesData, Text, Text> {
+    public static class MovingAverageReducer extends Reducer<Text, TimeSeriesData, Text, Text>
+    {
         private int windowSize;
 
-        /**
-         * will be run only once get parameters from Hadoop's configuration
-         */
-        public void setup(Context context) throws IOException, InterruptedException {
+        public void setup(Context context) throws IOException, InterruptedException
+        {
             this.windowSize = context.getConfiguration().getInt("moving.average.window.size", 5);
         }
 
-        public void reduce(Text key, Iterable<TimeSeriesData> values, Context context)
-                throws IOException, InterruptedException {
+        public void reduce(Text key, Iterable<TimeSeriesData> values, Context context) throws IOException, InterruptedException
+        {
             // build the unsorted list of timeseries
             List<TimeSeriesData> timeseries = new ArrayList<TimeSeriesData>();
             for (TimeSeriesData tsData : values) {
