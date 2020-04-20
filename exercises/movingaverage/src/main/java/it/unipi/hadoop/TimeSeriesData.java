@@ -24,7 +24,6 @@ public class TimeSeriesData implements Writable, Comparable<TimeSeriesData>
         this.set(timestamp, value);
     }
 
-
     public void set(final long timestamp, final double value)
     {
         this.timestamp = timestamp;

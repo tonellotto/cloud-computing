@@ -25,6 +25,5 @@ public class DateUtil
     public static void main(String args[])
     {
         System.err.println(getDateAsString(1374184800000l));
-
     }
 }

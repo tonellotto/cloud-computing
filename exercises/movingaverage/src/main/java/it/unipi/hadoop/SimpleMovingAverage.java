@@ -1,6 +1,6 @@
 package it.unipi.hadoop;
 
-/** 
+/**
  * Simple moving average by using an array data structure.
  */
 public class SimpleMovingAverage
@@ -10,8 +10,8 @@ public class SimpleMovingAverage
     private double[] window;
     private int pos;
     private int size;
- 
-    public SimpleMovingAverage(final int N) 
+
+    public SimpleMovingAverage(final int N)
     {
         if (N < 1)
            throw new IllegalArgumentException("N must be > 0");
@@ -19,11 +19,11 @@ public class SimpleMovingAverage
         this.window = new double[N];
 
         this.pos  = 0;
-    	this.size = 0;
- 		this.sum  = 0.0d;
+        this.size = 0;
+        this.sum  = 0.0d;
     }
- 
-    public void add(final double a) 
+
+    public void add(final double a)
     {
         sum += a;
         if (size < N) {
@@ -34,7 +34,7 @@ public class SimpleMovingAverage
         }
         window[pos++] = a;
     }
- 
+
     public double get()
     {
         if (size == 0)
@@ -42,8 +42,8 @@ public class SimpleMovingAverage
         return sum / size;
     }
 
-    public static void main(String[] args) 
-    {    
+    public static void main(String[] args)
+    {
         // time series        1   2   3  4   5   6   7
         double[] testData = {10, 18, 20, 30, 24, 33, 27};
         int[] allWindowSizes = {3, 4};
@@ -54,7 +54,6 @@ public class SimpleMovingAverage
                 sma.add(x);
                 System.out.println("Next number = " + x + ", SMA = " + sma.get());
             }
-            System.out.println("---");
         }
     }
 }
