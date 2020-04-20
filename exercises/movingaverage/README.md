@@ -9,7 +9,7 @@ We represent time series data as a sequence of triplets:
 
 Typically, time series data occurs whenever the same measurements are recorded over a period of time. The mean (or average) of time series data (observations equally spaced in time, such as per hour or per day) from several consecutive periods is called the **moving average**. It is called moving because the average is continually recomputed as new time series data becomes available, and it progresses by dropping the earliest value and adding the most recent.
 
-More formally, let $A$ be a sequence of an ordered set of objects <img src="https://latex.codecogs.com/svg.latex?A&space;=&space;(a_1,&space;a_2,&space;a_3,&space;...,&space;a_n)" title="A = (a_1, a_2, a_3, ..., a_n)" />. Then an $N$ moving average is a new sequence $s_i$ with i = 1, ...,  n − N + 1 from $a_i$ by taking
+More formally, let $A$ be a sequence of an ordered set of objects  $A = (a_1, a_2, a_3, ..., a_n)$. Then an $N$ moving average is a new sequence $s_i$ with i = 1, ...,  n − N + 1 from $a_i$ by taking
 the arithmetic mean of subsequences of $n$ consecutive objects:
 
 $$s_i = \frac{1}{N}\sum{j=i}^{i+N-1} a_i.$$
@@ -59,3 +59,7 @@ IBM	2013-09-26, 189.845
 IBM	2013-09-27, 188.57
 IBM	2013-09-30, 186.05
 ```
+
+<script type="text/javascript" async
+
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
