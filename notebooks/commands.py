@@ -261,3 +261,79 @@ def get_datanode_mapred_site():
 </configuration>
 '''
     return '"' + datanode_mapred_site.replace('\n', '" "') + '"'
+
+
+def get_pom():
+    pom = f'''<project xmlns=\\"http://maven.apache.org/POM/4.0.0\\" xmlns:xsi=\\"http://www.w3.org/2001/XMLSchema-instance\\"
+  xsi:schemaLocation=\\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd\\">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>it.unipi.hadoop</groupId>
+  <artifactId>wordcount</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>wordcount</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+    <java.version>1.8</java.version>
+    <hadoop.version>3.1.3</hadoop.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.2</version>
+        <configuration>
+          <source>\\${{java.version}}</source>
+          <target>\\${{java.version}}</target>
+          <encoding>\\${{project.build.sourceEncoding}}</encoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-mapreduce-client-jobclient</artifactId>
+      <version>\\${{hadoop.version}}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-common</artifactId>
+      <version>\\${{hadoop.version}}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-hdfs-client</artifactId>
+      <version>\\${{hadoop.version}}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-mapreduce-client-app</artifactId>
+      <version>\\${{hadoop.version}}</version>
+    </dependency>
+  </dependencies>
+</project>'''
+    return '"' + pom.replace('\n', '" "') + '"'
