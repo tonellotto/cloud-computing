@@ -4,7 +4,7 @@ Time series data represents the values of a variable over a period of time, such
 We represent time series data as a sequence of triplets:
 
 ```
-(key, time, value).
+(key, time, value)
 ```
 
 Typically, time series data occurs whenever the same measurements are recorded over a period of time. The mean (or average) of time series data (observations equally spaced in time, such as per hour or per day) from several consecutive periods is called the **moving average**. It is called moving because the average is continually recomputed as new time series data becomes available, and it progresses by dropping the earliest value and adding the most recent.
