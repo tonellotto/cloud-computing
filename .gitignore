@@ -1,9 +1,10 @@
 .DS_Store
 **/target/*
-.settings/*
-.classpath
-.project
+**/.settings/*
+**/.classpath
+**/.project
 .vscode
 #local
 **/*.pyc
 .ipynb_checkpoints
+**/target
