@@ -39,7 +39,7 @@ We will implement the mapper to parse the input tuples and emit them with the st
 The reducer must then sort these values based on timestamp, and finally apply the moving average algorithm.
 
 Implement:
-1. the [`TimeSeriesData`](src/main/java/it/unipi/hadoop/TimeSeriesData.java) class, implementing the Hadoop's `Writable` interface, since these objects will persist in Hadoop, and `Comparable<TimeSeriesData>`, 
+1. the [`TimeSeriesData`](src/main/java/it/unipi/hadoop/TimeSeriesData.java) class, implementing the Hadoop's `Writable` interface, since these objects will persist in Hadoop, and `Comparable<TimeSeriesData>`, since we need to sort the objects in *time* order.
 2. the [`InMemoryMovingAverage`](src/main/java/it/unipi/hadoop/InMemoryMovingAverage.java) class, containing the mapper, the reducer and the driver code.
 
 The expected output on the [input](../data/stock_prices.txt) data is:
