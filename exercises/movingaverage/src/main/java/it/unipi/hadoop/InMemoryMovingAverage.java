@@ -101,6 +101,7 @@ public class InMemoryMovingAverage
         System.out.println("args[2]: <output>="+otherArgs[2]);
 
         Job job = Job.getInstance(conf, "InMemoryMovingAverage");
+		job.setJarByClass(InMemoryMovingAverage.class);
 
         // set mapper/reducer
         job.setMapperClass(MovingAverageMapper.class);
