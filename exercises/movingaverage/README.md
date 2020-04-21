@@ -19,7 +19,7 @@ A simple plain Java solution using an array is [here](src/main/java/it/unipi/had
 ## Hadoop solution
 
 Now we focus on the MapReduce solution for a moving average problem.
-The input data (available [here]()) has the following format:
+The [input](../data/stock_prices.txt) data has the following format:
 
 ```
 <key as string>,<time as timestamp>,<value as double>
@@ -42,7 +42,7 @@ Implement:
 1. the [`TimeSeriesData`](src/main/java/it/unipi/hadoop/TimeSeriesData.java) class, implementing the Hadoop's `Writable` interface, since these objects will persist in Hadoop, and `Comparable<TimeSeriesData>`, 
 2. the [`InMemoryMovingAverage`](src/main/java/it/unipi/hadoop/InMemoryMovingAverage.java) class, containing the mapper, the reducer and the driver code.
 
-A test input is available [here](../data/stock_prices.txt). The expected output on this input input is:
+The expected output on the [input](../data/stock_prices.txt) data is:
 ```
 AAPL	2013-10-04, 483.22
 AAPL	2013-10-07, 485.39
