@@ -57,7 +57,3 @@ IBM	2013-09-26, 189.845
 IBM	2013-09-27, 188.57
 IBM	2013-09-30, 186.05
 ```
-
-<script type="text/javascript" async
-
-src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
