@@ -93,7 +93,7 @@ public class InMemoryMovingAverage
         Configuration conf = new Configuration();
         String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
         if (otherArgs.length != 3) {
-           System.err.println("Usage: SortInMemory_MovingAverageDriver <window_size> <input> <output>");
+           System.err.println("Usage: MovingAverage <window_size> <input> <output>");
            System.exit(1);
         }
         System.out.println("args[0]: <window_size>="+otherArgs[0]);
