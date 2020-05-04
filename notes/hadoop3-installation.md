@@ -148,9 +148,9 @@ The following commands are used to create the `.ssh` folder in your home folder 
         └── logs
     ```
 
-2. Download [hadoop-3.1.3.tar.gz](https://mirror.nohup.it/apache/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.tar.gz) in your folder using the following command:
+2. Download [hadoop-3.1.3.tar.gz](https://archive.apache.org/dist/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.tar.gz) in your folder using the following command:
     ```bash
-    $ wget -c -O ~/hadoop.tar.gz http://it.apache.contactlab.it/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.tar.gz
+    $ wget -c -O ~/hadoop.tar.gz https://archive.apache.org/dist/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.tar.gz
     ```
 
 3. Decompress the Hadoop package you can use the following command:
