@@ -94,7 +94,7 @@ Understanding the difference between the two modes is important for choosing an 
 Allocation of Spark containers to run in YARN containers may fail if memory allocation is not configured properly. For nodes with less than 4 GB RAM, the default configuration is not adequate and may trigger swapping and poor performance, or even the failure of application initialization due to lack of memory.  
 If the memory requested is above the maximum allowed, YARN will reject creation of the container, and your Spark application won't start.
 
-Get the value of `yarn.scheduler.maximum-allocation-mb` in `$HADOOP_HOME/conf/yarn-site.xml`. This is the maximum allowed value, in MB, for a single container.
+Get the value of `yarn.scheduler.maximum-allocation-mb` in `$HADOOP_HOME/etc/hadoop/yarn-site.xml`. This is the maximum allowed value, in MB, for a single container.
 Make sure that values for Spark memory allocation, configured in the following section, are below the maximum.
 This guide will use a sample value of 1536 for `yarn.scheduler.maximum-allocation-mb`. If your settings are lower, adjust the samples with your configuration.
 
