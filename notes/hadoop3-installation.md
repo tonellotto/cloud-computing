@@ -229,6 +229,10 @@ The following steps must be performed **on the machine defined as name node only
         <value>mapreduce_shuffle</value>
       </property>
       <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>hadoop-namenode</value>
+      </property>
+      <property>
         <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
         <value>org.apache.hadoop.mapred.ShuffleHandler</value>
       </property>
@@ -341,6 +345,10 @@ The following steps must be performed **on each machine defined as data node**, 
       <property>
         <name>yarn.nodemanager.aux-services</name>
         <value>mapreduce_shuffle</value>
+      </property>
+      <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>hadoop-namenode</value>
       </property>
     </configuration>
     ```

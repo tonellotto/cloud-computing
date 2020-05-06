@@ -74,6 +74,10 @@ def get_namenode_yarn_site():
     <value>mapreduce_shuffle</value>
   </property>
   <property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>hadoop-namenode</value>
+  </property>
+  <property>
     <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
     <value>org.apache.hadoop.mapred.ShuffleHandler</value>
   </property>
@@ -205,7 +209,10 @@ def get_datanode_yarn_site():
     <name>yarn.nodemanager.aux-services</name>
     <value>mapreduce_shuffle</value>
   </property>
-
+  <property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>hadoop-namenode</value>
+  </property>
   <property>
     <name>yarn.nodemanager.resource.memory-mb</name>
     <value>1536</value>

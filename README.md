@@ -12,3 +12,14 @@
 |21/04|15:30-18:30|Online| Hadoop Distributed File System (HDFS). Hadoop runtime framework for MapReduce (YARN). [Moving Average](exercises/movingaverage) exercise. | [Slides](slides/hdfs_yarn.pdf) |
 |28/04|15:30-18:30|Online| Fault tolerance in Hadoop MapReduce. MapReduce Design Patterns: Intermediate data reduction, Matrix generation and multiplication, Selection and filtering, Joining, Graph algorithms. [Matrix Multiplication](exercises/matrix) exercise. | [Slides](slides/design-patterns.pdf) |
 |05/05|8:30-10:30|Online| Spark introduction: resilient distributed datasets, Lineage. Spark architecture: driver, executors, context.| [Slides](slides/spark-intro.pdf)<br>[Notes](notes/spark-installation-notes.md) |
+
+## Messages
+
+>**Node Manager Issues**<br>
+If you do not see all your node managers list in the Web UI (or by running the command `yarn node -list -all` on the `hadoop-namenode` machine) please update the `yarn-site.xml` configuration files **on all your machines** with the following new property:
+```xml
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>hadoop-namenode</value>
+</property>
+```
