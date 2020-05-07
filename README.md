@@ -23,4 +23,4 @@ If you do not see all your node managers list in the Web UI (or by running the c
   <value>hadoop-namenode</value>
 </property>
 ```
-Note that on all your machines you must assign the same *value*, i.e., the  hostname of the virtual machines hosting the YARN resource manager. This will allow the node managers to correctly communicate with the resource manager.
+>Note that on all your machines you must assign the same *value*, i.e., the  hostname of the virtual machines hosting the YARN resource manager. This will allow the node managers to correctly communicate with the resource manager.
