@@ -11,7 +11,9 @@
 |07/04|15:30-18:30|Online| Hadoop setup and configuration. Programming in Hadoop (Java). [Wordcount](exercises/wordcount) exercise. | [Slides](slides/hadoop.pdf)<br>[HDFS](notes/hadoop3-hdfs.md)<br>[Java](notes/hadoop3-java-programming.md) |
 |21/04|15:30-18:30|Online| Hadoop Distributed File System (HDFS). Hadoop runtime framework for MapReduce (YARN). [Moving Average](exercises/movingaverage) exercise. | [Slides](slides/hdfs_yarn.pdf) |
 |28/04|15:30-18:30|Online| Fault tolerance in Hadoop MapReduce. MapReduce Design Patterns: Intermediate data reduction, Matrix generation and multiplication, Selection and filtering, Joining, Graph algorithms. [Matrix Multiplication](exercises/matrix) exercise. | [Slides](slides/design-patterns.pdf) |
-|05/05|8:30-10:30|Online| Spark introduction: resilient distributed datasets, lineage. Spark architecture: driver, executors, context. Spark download and setup. | [Slides](slides/spark-intro.pdf)<br>[Notes](notes/spark-installation-notes.md) |
+|05/05|8:30-10:30|Online| MapReduce graph algorithms. Spark introduction, download and setup. | [Slides](slides/spark-intro.pdf)<br>[Notes](notes/spark-installation-notes.md) |
+|12/05|15:30-18:30|Online| Spark: resilient distributed datasets, lineage. Spark architecture: driver, executors, context. Spark actions and transformations. [Pi](exercises/spark#1-pi) and [Wordcount](exercises/spark#2-wordcount) exercises.| [Slides](slides/spark.pdf)<br>[Notes](exercises/spark) |
+
 
 ## Messages
 
