@@ -13,6 +13,7 @@
 |28/04|15:30-18:30|Online| Fault tolerance in Hadoop MapReduce. MapReduce Design Patterns: Intermediate data reduction, Matrix generation and multiplication, Selection and filtering, Joining, Graph algorithms. [Matrix Multiplication](exercises/matrix) exercise. | [Slides](slides/design-patterns.pdf) |
 |05/05|8:30-10:30|Online| MapReduce graph algorithms. Spark introduction, download and setup. | [Slides](slides/spark-intro.pdf)<br>[Notes](notes/spark-installation-notes.md) |
 |12/05|15:30-18:30|Online| Spark: resilient distributed datasets, lineage. Spark architecture: driver, executors, context. Spark actions and transformations. [Pi](exercises/spark#1-pi) and [Wordcount](exercises/spark#2-wordcount) exercises.| [Slides](slides/spark.pdf)<br>[Notes](exercises/spark) |
+|19/05|8:30-10:30|Online| RDD persistence, broadcast variables and accumulator. Anatomy of a Spark job, wide and narrow transformations.| [Slides](slides/spark.pdf) |
 
 
 ## Messages
