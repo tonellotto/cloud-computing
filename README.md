@@ -14,7 +14,7 @@
 |05/05|8:30-10:30|Online| MapReduce graph algorithms. Spark introduction, download and setup. | [Slides](slides/spark-intro.pdf)<br>[Notes](notes/spark-installation-notes.md) |
 |12/05|15:30-18:30|Online| Spark: resilient distributed datasets, lineage. Spark architecture: driver, executors, context. Spark actions and transformations. [Pi](exercises/spark#1-pi) and [Wordcount](exercises/spark#2-wordcount) exercises.| [Slides](slides/spark.pdf)<br>[Notes](exercises/spark) |
 |19/05|8:30-10:30|Online| RDD persistence, broadcast variables and accumulator. Anatomy of a Spark job, wide and narrow transformations.| [Slides](slides/spark.pdf) |
-|22/05|8:30-11:30|Online| Application development in Spark: communications cost, shuffling & sorting. MLlib. [Logistic regression](exercises/spark/logistic_regression.py) and [PageRank]((exercises/spark/pagerank.py) exercises.| [Slides](slides/spark-dev.pdf) |
+|22/05|8:30-11:30|Online| Application development in Spark: communications cost, shuffling & sorting. MLlib. [Logistic regression](exercises/spark/logistic_regression.py) and [PageRank](exercises/spark/pagerank.py) exercises.| [Slides](slides/spark-dev.pdf) |
 
 
 ## Messages
