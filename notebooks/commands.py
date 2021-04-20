@@ -8,7 +8,6 @@ WGET_CMD = 'wget --progress=bar:force -c -O /home/hadoop/hadoop.tar.gz https://a
 TAR_CMD = 'tar -xvf hadoop.tar.gz --directory=/opt/hadoop --exclude=hadoop-3.1.0/share/doc --strip 1 > /dev/null'
 RM_CMD = 'rm /home/hadoop/hadoop.tar.gz'
 
-
 def get_bashrc():
     bashrc_string = '''export HADOOP_HOME=/opt/hadoop
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:\\$HADOOP_HOME/bin:\\$HADOOP_HOME/sbin
@@ -66,7 +65,7 @@ def get_namenode_hdfs_site():
     return '"' + namenode_hdfs_site.replace('\n', '" "') + '"'
 
 
-def get_namenode_yarn_site():
+def get_namenode_yarn_site(namenode_hostname):
     namenode_yarn_site = f'''
 <configuration>
   <property>
@@ -75,7 +74,7 @@ def get_namenode_yarn_site():
   </property>
   <property>
     <name>yarn.resourcemanager.hostname</name>
-    <value>hadoop-namenode</value>
+    <value>{namenode_hostname}</value>
   </property>
   <property>
     <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
@@ -202,7 +201,7 @@ def get_datanode_hdfs_site():
     return '"' + datanode_hdfs_site.replace('\n', '" "') + '"'
 
 
-def get_datanode_yarn_site():
+def get_datanode_yarn_site(namenode_hostname):
     datanode_yarn_site = f'''
 <configuration>
   <property>
@@ -211,7 +210,7 @@ def get_datanode_yarn_site():
   </property>
   <property>
     <name>yarn.resourcemanager.hostname</name>
-    <value>hadoop-namenode</value>
+    <value>{namenode_hostname}</value>
   </property>
   <property>
     <name>yarn.nodemanager.resource.memory-mb</name>
