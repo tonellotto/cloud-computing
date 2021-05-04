@@ -9,7 +9,7 @@ We represent time series data as a sequence of triplets:
 
 Typically, time series data occurs whenever the same measurements are recorded over a period of time. The mean (or average) of time series data (observations equally spaced in time, such as per hour or per day) from several consecutive periods is called the **moving average**. It is called moving because the average is continually recomputed as new time series data becomes available, and it progresses by dropping the earliest value and adding the most recent.
 
-More formally, let *A* be a sequence of an ordered set of objects $$A = (a_1, a_2, a_3, ..., a_n)$$. Then an *N* moving average is a new sequence *s_i* with *i = 1, ...,  n − N + 1* from *a_i* by taking
+More formally, let *A* be a sequence of an ordered set of objects *A = (a_1, a_2, a_3, ..., a_n)*. Then an *N* moving average is a new sequence *s_i* with *i = 1, ...,  n − N + 1* from *a_i* by taking
 the arithmetic mean of subsequences of *n* consecutive objects.
 
 ## Simple Java solution
